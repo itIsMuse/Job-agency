@@ -7,7 +7,7 @@ const App = () => {
     <>
       <Navbar />
       {/* <!-- Hero --> */}
-      <Hero />
+      <Hero title="This is a title" subtitle="this is a subtitle" />
 
       {/* <!-- Developers and Employers --> */}
       <section className="py-4">
