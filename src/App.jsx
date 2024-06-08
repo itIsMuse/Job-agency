@@ -7,9 +7,7 @@ const App = () => {
   return (
     <>
       <Navbar />
-
       <Hero />
-
       <HomeCards />
 
       <section className="bg-blue-50 px-4 py-10">
