@@ -10,9 +10,15 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
+import Homepage from "./Pages/Homepage";
+import MainLayout from "./Layout/MainLayout";
 
 const router = createBrowserRouter(
-  createRoutesFromElements(<Route index element={<h1>Hello world </h1>} />)
+  createRoutesFromElements(
+    <Route path="/" element={<MainLayout />}>
+      <Route path="/home" element={<Homepage />} />
+    </Route>
+  )
 );
 
 const App = () => {
