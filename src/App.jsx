@@ -13,12 +13,14 @@ import {
 import Homepage from "./Pages/Homepage";
 import MainLayout from "./Layout/MainLayout";
 import JobsPage from "./Pages/JobsPage";
+import AddJob from "./Pages/AddJob";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
       <Route path="/home" element={<Homepage />} />
       <Route path="/Jobs" element={<JobsPage />} />
+      <Route path="/addJob" element={<AddJob />} />
     </Route>
   )
 );
