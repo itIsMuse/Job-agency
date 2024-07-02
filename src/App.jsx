@@ -12,11 +12,13 @@ import {
 } from "react-router-dom";
 import Homepage from "./Pages/Homepage";
 import MainLayout from "./Layout/MainLayout";
+import JobsPage from "./Pages/JobsPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
       <Route path="/home" element={<Homepage />} />
+      <Route path="/Jobs" element={<JobsPage />} />
     </Route>
   )
 );
@@ -27,9 +29,7 @@ const App = () => {
     //   // <>
     //   //   <Navbar />
     //   //   <Hero />
-    //   //   <HomeCards />
-    //   //   <JobListings />
-    //   //   <ViewAllJobs />
+    //   //
     //   // </>
   );
 };
