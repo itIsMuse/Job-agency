@@ -1,7 +1,8 @@
 import React from "react";
+import JobListings from "../Components/jobListings";
 
 const JobsPage = () => {
-  return <div>JobsPage</div>;
+  return <JobListings isHome={false} />;
 };
 
 export default JobsPage;
