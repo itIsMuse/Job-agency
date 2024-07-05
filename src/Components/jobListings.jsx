@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import jobs from "../jobs.json";
 import JobListing from "./JobListing";
 
 const JobListings = ({ isHome }) => {
   const [fullDescripton, setFullDescription] = useState(false);
+
+  const [jobs, setJob] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {}, []);
 
   const jobListings = isHome ? jobs.slice(0, 3) : jobs;
   return (
