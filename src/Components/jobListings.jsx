@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import jobs from "../jobs.json";
 import JobListing from "./JobListing";
+import { data } from "autoprefixer";
 
 const JobListings = ({ isHome }) => {
   const [fullDescripton, setFullDescription] = useState(false);
@@ -8,7 +9,14 @@ const JobListings = ({ isHome }) => {
   const [jobs, setJob] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const fetchJobs = async () => {
+      const res = await fetch("http://localhost:8000/jobs");
+      const data = await res.json;
+      setJob(data);
+    };
+    fetchJobs();
+  }, []);
 
   const jobListings = isHome ? jobs.slice(0, 3) : jobs;
   return (
@@ -18,7 +26,7 @@ const JobListings = ({ isHome }) => {
           Browse Jobs
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {jobListings.map((job) => {
+          {jobs.map((job) => {
             return <JobListing key={job.id} job={job} />;
           })}
         </div>
