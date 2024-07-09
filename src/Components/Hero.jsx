@@ -1,7 +1,7 @@
 import React from "react";
 
 const Hero = ({
-  title = "become a dev",
+  title = "Become a dev",
   subtitle = "find a react job that fits your title",
 }) => {
   return (
