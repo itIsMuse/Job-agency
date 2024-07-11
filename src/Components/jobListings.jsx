@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import jobs from "../jobs.json";
 import JobListing from "./JobListing";
 import { data } from "autoprefixer";
+import Spinner from "./Spinner";
 
 const JobListings = ({ isHome }) => {
   const [fullDescripton, setFullDescription] = useState(false);
@@ -11,9 +12,15 @@ const JobListings = ({ isHome }) => {
 
   useEffect(() => {
     const fetchJobs = async () => {
-      const result = await fetch("http://localhost:8000/jobs");
-      const data = await result.json();
-      setJob(data);
+      try {
+        const result = await fetch("http://localhost:8000/jobs");
+        const data = await result.json();
+        setJob(data);
+      } catch (error) {
+        console.log("error loading", error);
+      } finally {
+        setLoading(false);
+      }
     };
     fetchJobs();
   }, []);
@@ -26,9 +33,15 @@ const JobListings = ({ isHome }) => {
           Browse Jobs
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {jobListing.map((job) => {
-            return <JobListing key={job.id} job={job} />;
-          })}
+          {loading ? (
+            <Spinner loading={loading} />
+          ) : (
+            <>
+              {jobListing.map((job) => {
+                return <JobListing key={job.id} job={job} />;
+              })}
+            </>
+          )}
         </div>
       </div>
     </section>
