@@ -11,9 +11,12 @@ const JobListings = ({ isHome }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const url = isHome
+      ? "http://localhost:8000/jobs?_limit=3"
+      : "http://localhost:8000/jobs";
     const fetchJobs = async () => {
       try {
-        const result = await fetch("http://localhost:8000/jobs");
+        const result = await fetch(url);
         const data = await result.json();
         setJob(data);
       } catch (error) {
@@ -25,7 +28,7 @@ const JobListings = ({ isHome }) => {
     fetchJobs();
   }, []);
 
-  const jobListing = isHome ? jobs.slice(0, 3) : jobs;
+  const jobListing = jobs;
   const grid = "grid grid-cols-1 md:grid-cols-3 gap-6";
 
   return (
