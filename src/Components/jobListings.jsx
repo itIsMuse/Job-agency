@@ -11,7 +11,7 @@ const JobListings = ({ isHome }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const url = isHome ? "/api/?limit=3" : "/api/";
+    const url = isHome ? "/api/jobs?_limit=3" : "/api/jobs";
     const fetchJobs = async () => {
       try {
         const result = await fetch(url);
