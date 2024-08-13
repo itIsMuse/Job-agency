@@ -13,7 +13,7 @@ import {
 import Homepage from "./Pages/Homepage";
 import MainLayout from "./Layout/MainLayout";
 import JobsPage from "./Pages/JobsPage";
-import JobPage from "./Pages/JobPage";
+import JobPage, { jobLoader } from "./Pages/JobPage";
 import AddJob from "./Pages/AddJob";
 import NotFound from "./Pages/NotFound";
 
@@ -22,7 +22,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<MainLayout />}>
       <Route path="/home" element={<Homepage />} />
       <Route path="/Jobs" element={<JobsPage />} />
-      <Route path="/Jobs/:id" element={<JobPage />} />
+      <Route path="/Jobs/:id" element={<JobPage />} loader = {jobLoader} />
       <Route path="/addJob" element={<AddJob />} />
       <Route path="*" element={<NotFound />} />
     </Route>
