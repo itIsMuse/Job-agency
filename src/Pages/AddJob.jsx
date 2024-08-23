@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import { useNavigate } from "react-router-dom";
 
 const AddJob = () => {
 
@@ -29,7 +29,8 @@ const newJob = {
   contactPhone
 }
 }
-console.log (newJob)
+
+
   }
 
   return (
