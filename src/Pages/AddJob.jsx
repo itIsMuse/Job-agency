@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
-const AddJob = () => {
+const AddJob = ({addJobSubmit}) => {
 
   const [title, setTitle] = useState('');
-  const [type, setType] = useState('Full-Time');
-  const [location, setLocation] = useState('dchjdsvd');
+  const [type, setType] = useState('Part-Time');
+  const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
   const [salary, setSalary] = useState('Under $50K');
   const [companyName, setCompanyName] = useState('');
@@ -13,6 +13,7 @@ const AddJob = () => {
   const [contactEmail, setContactEmail] = useState('');
   const [contactPhone, setContactPhone] = useState('');
 
+const navigate = useNavigate('')
   const submitForm = (e) => {
 e.preventDefault()
 
@@ -30,7 +31,9 @@ const newJob = {
 }
 }
 
+addJobSubmit(newJob)
 
+return navigate('/jobs')
   }
 
   return (
