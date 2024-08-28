@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useLoaderData } from "react-router-dom";
+import { useParams, useLoaderData, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaMapMarker} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -11,17 +11,21 @@ const jobLoader = async({params}) => {
     return data
   }
 
-const JobPage = () =>{
+
+const JobPage = ({deleteJob}) =>{
   const {id} = useParams()
   const job = useLoaderData()
 console.log (job)
 const [jobList, setJoblist] = useState(job)
 
-const onDelete = () => {
-  const leftArray = (id) => {
-    job.filter(job => job.id !== id )
-  }
-  setJoblist(leftArray)
+const onDelete = (id) => {
+const confirm = window.confirm('Are you sure ?');
+
+if (!confirm) {
+return   
+}
+deleteJob(job.id)
+
 }
 
 return (
