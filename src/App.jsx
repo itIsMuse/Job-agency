@@ -37,7 +37,7 @@ const App = () => {
 
   //deletejob
   const deleteJob = async (jobId) => {
-const res = await fetch (`/api/job/${id}`, {
+const res = await fetch (`/api/jobs/${jobId}`, {
   method: 'DELETE'
 })
   } 

@@ -15,7 +15,8 @@ const jobLoader = async({params}) => {
 const JobPage = ({deleteJob}) =>{
   const {id} = useParams()
   const job = useLoaderData()
-console.log (job)
+  const navigate = useNavigate()
+// console.log (job)
 const [jobList, setJoblist] = useState(job)
 
 const onDelete = (id) => {
@@ -26,6 +27,7 @@ return
 }
 deleteJob(job.id)
 
+return navigate('/jobs')
 }
 
 return (
@@ -107,7 +109,7 @@ return (
                 className="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                 >Edit Job </Link
               >
-              <button onClick={() => {onDelete}}
+              <button onClick={() => {onDelete(job.id)}}
                 className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
               >
                 Delete Job
