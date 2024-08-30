@@ -3,6 +3,7 @@ import { useParams, useLoaderData, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaMapMarker} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 
 const jobLoader = async({params}) => {
@@ -25,7 +26,7 @@ const confirm = window.confirm('Are you sure ?');
 if (!confirm) {
 return   
 }
-deleteJob(job.id)
+deleteJob(id)
 
 return navigate('/jobs')
 }
