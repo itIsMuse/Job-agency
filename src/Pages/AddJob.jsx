@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
-const AddJob = ({addJobSubmit}) => {
+const AddJob = ({addJobSubmit, editJob = false}) => {
 
   const [title, setTitle] = useState('');
   const [type, setType] = useState('Part-Time');
