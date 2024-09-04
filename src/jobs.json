@@ -8,7 +8,7 @@
       "location": "Boston, MA",
       "salary": "$70K - $80K",
       "company": {
-        "name": "NewTek Solutions",
+        "name": "NewTek Solut",
         "description": "NewTek Solutions is a leading technology company specializing in web development and digital solutions. We pride ourselves on delivering high-quality products and services to our clients while fostering a collaborative and innovative work environment.",
         "contactEmail": "contact@teksolutions.com",
         "contactPhone": "555-555-5555"
@@ -22,7 +22,7 @@
       "description": "Join our team as a Front-End Developer in sunny Miami, FL. We are looking for a motivated individual with a passion for crafting beautiful and responsive web applications. Experience with UI/UX design principles and a strong attention to detail are highly desirable.",
       "salary": "$70K - $80K",
       "company": {
-        "name": "Veneer Solutions",
+        "name": "Veneer Solut",
         "description": "Veneer Solutions is a creative agency specializing in digital design and development. Our team is dedicated to pushing the boundaries of creativity and innovation to deliver exceptional results for our clients.",
         "contactEmail": "contact@loremipsum.com",
         "contactPhone": "555-555-5555"
@@ -30,7 +30,7 @@
     },
     {
       "id": "3",
-      "title": "React.js Dev",
+      "title": "Act not react",
       "type": "Full-Time",
       "location": "Brooklyn, NY",
       "description": "Are you passionate about front-end development? Join our team in vibrant Brooklyn, NY, and work on exciting projects that make a difference. We offer competitive compensation and a collaborative work environment where your ideas are valued.",
@@ -50,7 +50,7 @@
       "location": "Pheonix, AZ",
       "salary": "$60K - $70K",
       "company": {
-        "name": "Alpha Elite",
+        "name": "AlphaEl ",
         "description": "Alpha Elite is a dynamic startup specializing in digital marketing and web development. We are committed to fostering a diverse and inclusive workplace where creativity and innovation thrive.",
         "contactEmail": "contact@adipisicingelit.com",
         "contactPhone": "555-555-5555"
@@ -71,17 +71,31 @@
       }
     },
     {
-      "id": "1c7d",
+      "id": "b3cf",
       "type": "Part-Time",
-      "title": "Part time developer",
-      "location": "Lagos ",
-      "description": "New a web master ",
-      "salary": "$70K - 80K",
+      "title": "f",
+      "location": "dfv",
+      "description": "fd",
+      "salary": "$125K - 150K",
       "company": {
-        "name": "Microhard",
-        "description": "we make hard things simple",
-        "contactEmail": "microhard@gmail.com",
-        "contactPhone": "07098679"
+        "name": "dfv",
+        "description": "dfv",
+        "contactEmail": "fd@asc",
+        "contactPhone": "ce"
+      }
+    },
+    {
+      "id": "ee9a",
+      "type": "Part-Time",
+      "title": "s",
+      "location": "kxa",
+      "description": "sak",
+      "salary": "$80K - 90K",
+      "company": {
+        "name": "sal.",
+        "description": "asclk",
+        "contactEmail": "lkd@SJH",
+        "contactPhone": "SALK"
       }
     }
   ]

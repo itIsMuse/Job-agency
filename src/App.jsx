@@ -43,17 +43,29 @@ const res = await fetch (`/api/jobs/${jobId}`, {
 })
   } 
 
+
   const editJob = async (newInfo) => {
-    const res = await fetch ('/api/jobs/', {
-      headers:{
-        'content-type': 'application/json'
-      },
-      method: 'PUT',
-      body: JSON.stringify(newJob)
-    })
-    return 
-    ;
+    try {
+      const res = await fetch(`/api/jobs/${newInfo.id}`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'PATCH',
+        body: JSON.stringify(newInfo),
+      });
+  
+      if (!res.ok) {
+        throw new Error('Failed to update job');
+      }
+  
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      console.error('Error:', error);
+      throw error;
     }
+  };
+  
   
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -62,7 +74,7 @@ const res = await fetch (`/api/jobs/${jobId}`, {
         <Route path="/Jobs" element={<JobsPage />} />
         <Route path="/Jobs/:id" element={<JobPage deleteJob = {deleteJob}/>} loader = {jobLoader} />
         <Route path="/addJob" element={<AddJob addJobSubmit={addJob}/>} />
-        <Route path="/jobs/edit/:id" element={<EditJobPage />}/>
+        <Route path="/jobs/edit/:id" element={<EditJobPage updateJob={editJob} />} loader = {jobLoader}/>
         <Route path="*" element={<NotFound />} />
       </Route>
     )

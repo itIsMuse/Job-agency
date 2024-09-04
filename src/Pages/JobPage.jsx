@@ -28,6 +28,8 @@ return
 }
 deleteJob(id)
 
+toast.success('Job successfully removed')
+
 return navigate('/jobs')
 }
 
