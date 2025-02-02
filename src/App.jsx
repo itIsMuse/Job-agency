@@ -17,6 +17,7 @@ import JobPage, { jobLoader } from "./Pages/JobPage";
 import AddJob from "./Pages/AddJob";
 import NotFound from "./Pages/NotFound";
 import EditJobPage from "./Pages/EditJobPage";
+import { Navigate } from "react-router-dom";
 
 
 
