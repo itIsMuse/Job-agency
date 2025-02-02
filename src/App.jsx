@@ -70,6 +70,7 @@ const res = await fetch (`/api/jobs/${jobId}`, {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
+        <Route index element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<Homepage />} />
         <Route path="/Jobs" element={<JobsPage />} />
         <Route path="/Jobs/:id" element={<JobPage deleteJob = {deleteJob}/>} loader = {jobLoader} />
