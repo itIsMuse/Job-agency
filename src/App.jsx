@@ -25,21 +25,43 @@ import { Navigate } from "react-router-dom";
 
 const App = () => {
 //addjob
-  const addJob = async (newJob) => {
-  const res = await fetch ('/api/jobs/', {
-    headers:{
-      'content-type': 'application/json'
-    },
-    method: 'POST',
-    body: JSON.stringify(newJob)
-  })
-  return 
-  ;
+const addJob = async (newJob) => {
+  const url = "https://api.jsonbin.io/v3/b/67a01ba7e41b4d34e4830805";
+
+  try {
+    // Step 1: Fetch current jobs from JSONBin
+    const fetchResponse = await fetch(url);
+    const fetchData = await fetchResponse.json();
+
+    // Extract current jobs (ensure it exists)
+    const currentJobs = fetchData.record?.jobs || [];
+
+    // Step 2: Add new job to the list
+    const updatedJobs = [...currentJobs, newJob];
+
+    // Step 3: Send updated jobs back to JSONBin
+    const updateResponse = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        record: {
+          jobs: updatedJobs // Updated job list
+        }
+      })
+    });
+
+    const result = await updateResponse.json();
+    console.log("Updated JSONBin:", result);
+  } catch (error) {
+    console.error("Error updating JSONBin:", error);
   }
+};
 
   //deletejob
   const deleteJob = async (jobId) => {
-const res = await fetch (`/api/jobs/${jobId}`, {
+const res = await fetch (`https://api.jsonbin.io/v3/b/67a01ba7e41b4d34e4830805/${jobId}`, {
   method: 'DELETE'
 })
   } 
@@ -47,7 +69,7 @@ const res = await fetch (`/api/jobs/${jobId}`, {
 
   const editJob = async (newInfo) => {
     try {
-      const res = await fetch(`/api/jobs/${newInfo.id}`, {
+      const res = await fetch(`https://api.jsonbin.io/v3/b/67a01ba7e41b4d34e4830805/${newInfo.id}`, {
         headers: {
           'Content-Type': 'application/json',
         },

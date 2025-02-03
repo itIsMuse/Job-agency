@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/api": {
-        target: "http://localhost:8000",
+        target: "https://api.jsonbin.io/v3/b/67a01ba7e41b4d34e4830805",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },

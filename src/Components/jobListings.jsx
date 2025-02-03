@@ -7,26 +7,35 @@ import Spinner from "./Spinner";
 const JobListings = ({ isHome }) => {
   const [fullDescripton, setFullDescription] = useState(false);
 
-  const [jobs, setJob] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [jobs, setJobs] = useState([]);
+const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const url = isHome ? "/api/jobs?_limit=3" : "/api/jobs";
-    const fetchJobs = async () => {
-      try {
-        const result = await fetch(url);
-        const data = await result.json();
-        setJob(data);
-      } catch (error) {
-        console.log("error loading", error);
-      } finally {
-        setLoading(false);
+useEffect(() => {
+  const url = isHome ? "https://api.jsonbin.io/v3/b/67a01ba7e41b4d34e4830805?_limit=3" : "https://api.jsonbin.io/v3/b/67a01ba7e41b4d34e4830805";
+
+  const fetchJobs = async () => {
+    try {
+      const result = await fetch(url);
+      const data = await result.json();
+
+      // Extract jobs correctly
+      if (data.record && Array.isArray(data.record.jobs)) {
+        setJobs(data.record.jobs);
+      } else {
+        throw new Error("Invalid data format");
       }
-    };
-    fetchJobs();
-  }, []);
+    } catch (error) {
+      console.log("Error loading jobs:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  const jobListing = jobs;
+  fetchJobs();
+}, []);
+
+const jobListing = jobs;
+  console.log(jobListing);
   const grid = "grid grid-cols-1 md:grid-cols-3 gap-6";
 
   return (
