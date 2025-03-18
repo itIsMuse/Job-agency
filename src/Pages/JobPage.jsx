@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 
 const jobLoader = async ({ params }) => {
-  const result = await fetch(`/api/jobs/${params.id}`);
+  const result = await fetch(`https://api.jsonbin.io/v3/b/67a01ba7e41b4d34e4830805.record.job${params.id}`);
+  console.log(result);
   const data = await result.json();
   return data;
 };
